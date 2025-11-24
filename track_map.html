@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Track Waste Pickup</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map { height: 500px; width: 100%; margin-top: 20px; }
+    body { text-align: center; font-family: Arial; }
+  </style>
+</head>
+<body>
+
+<h2>Track Waste Pickup Location</h2>
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  // Set the initial location (latitude, longitude)
+  var map = L.map('map').setView([17.385044, 78.486671], 13); // Hyderabad example
+
+  // Add OpenStreetMap tiles
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors',
+  }).addTo(map);
+
+  // Add a marker for the pickup location
+  var marker = L.marker([17.385044, 78.486671]).addTo(map)
+    .bindPopup('Waste Pickup Location')
+    .openPopup();
+</script>
+
+</body>
+</html>
